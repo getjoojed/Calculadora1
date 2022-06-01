@@ -1,6 +1,3 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
 name: Integração continua de Java com Maven
 on:
 push:
@@ -24,7 +21,6 @@ distribution: 'temurin'
 cache: maven
 - name: Compila o projeto com Maven
 run: mvn -B compile --file pom.xm
-
 # Jobs do ambiente de homologação
 build-hmg:
 runs-on: ubuntu-latest
@@ -44,7 +40,6 @@ distribution: 'temurin'
 cache: maven
 - name: Testa o projeto com Maven
 run: mvn -B test --file pom.xml
-
 # Jobs do ambiente de produção
 build-prd:
 runs-on: ubuntu-latest
@@ -74,4 +69,3 @@ uses: actions/upload-artifact@v2
 with:
 name: Package
 path: staging
-
